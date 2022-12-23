@@ -293,11 +293,7 @@
   max-width: 100%;
   vertical-align: middle;
 }
-.singer-slider{
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
+
 .overflow-hidden{
   overflow: hidden;
   padding: 5px;
