@@ -1,0 +1,284 @@
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #1d2631;
+  color: white;
+}
+
+/* menu */
+.left-side {
+  width: 20%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  background-color: #1d2631;
+  height: 100%;
+  border-right: 0.01px solid wheat;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: white;
+  font-size: 18px;
+  list-style: none;
+}
+
+.menu-link {
+  display: flex;
+  gap: 25px;
+}
+.func {
+  display: none;
+}
+/* content */
+.between-side {
+  width: 55%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 20%;
+  background-color: #1d2631;
+  height: 100%;
+}
+.search-acc {
+  margin-bottom: 50px;
+}
+.search-bar {
+  top: 10px;
+}
+.search-icon {
+  position: fixed;
+  top: 18px;
+  left: 43.5%;
+}
+
+.search {
+  color: white;
+  top: 10px;
+  left: 2%;
+  width: 45%;
+  height: 35px;
+  border: 0.1px solid white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.acc {
+  position: fixed;
+  top: 12px;
+  left: 65%;
+}
+
+.slide {
+  margin-top: 50px;
+  width: 100%;
+}
+.slide-img {
+  width: 100%;
+}
+.footer {
+  border-top: 0.01px solid white;
+}
+
+.footer-1 {
+  display: flex;
+  justify-content: space-around;
+}
+.footer-nav {
+  height: 20px;
+  display: flex;
+  gap: 10px;
+  padding: 0 auto;
+  list-style: none;
+  color: white;
+  font-size: 14px;
+}
+
+.line {
+  border-left: 0.1px solid white;
+}
+
+.down {
+  display: flex;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.521);
+  gap: 5px;
+}
+
+.footer-2 {
+  display: flex;
+  justify-items: center;
+  gap: 7px;
+  color: white;
+}
+
+.footer-3 {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+.white-color {
+  color: white;
+}
+
+.blue-color {
+  color: blue;
+}
+
+.title-modal {
+  color: white;
+  text-align: center;
+}
+
+.footer-4 {
+  padding-left: 20px;
+  display: flex;
+  justify-items: center;
+  gap: 5px;
+  color: white;
+}
+
+.d-flex {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.input-form {
+  height: 35px;
+  border: 0.1px solid rgba(255, 255, 255, 0.459);
+  padding: 1px;
+  color: white;
+}
+.form-submit {
+  color: white;
+  background-color: blue;
+}
+.form-submit:hover {
+  color: white;
+  background-color: blue;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bg-2 {
+  background-color: rgba(0, 0, 0, 0.288);
+}
+/* right side */
+.right-side {
+  width: 25%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  right: -20%;
+  background-color: #1d2631b7;
+  height: 100%;
+}
+
+.play-list {
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 7px;
+}
+.check-to-add {
+  display: none;
+  color: white;
+  margin-left: -5px;
+}
+.song {
+  padding: 5px;
+}
+.song:hover {
+  background-color: rgba(0, 0, 0, 0.39);
+}
+.song:hover .hover-to-check {
+  display: none;
+}
+
+.song:hover .check-to-add {
+  display: block;
+}
+.content {
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+/* responsive */
+@media screen and (max-width: 390px) {
+  .footer-1 {
+    flex-direction: column;
+  }
+  .footer-4 {
+    flex-direction: column;
+  }
+  .footer-nav {
+    font-size: 12px;
+  }
+  .search-icon {
+    left: 40%;
+  }
+  .footer-3 p {
+    font-size: 12px;
+  }
+  .footer-2 img {
+    width: 40%;
+  }
+  .acc {
+    left: 55%;
+  }
+}
+@media screen and (min-width: 820px) {
+  .func {
+    display: block;
+  }
+}
+
+/* this page */
+.max-width{
+    max-width: 100%;
+}
+.img-emotion{
+    max-width: 95%;
+    margin: 5px;
+    border-radius: 5px;
+}
+.title-emotion{
+    position: absolute;
+    font-size: 20px;
+    font-weight: 700;
+    left: 30px;
+    top: 35px;
+}
+.img-country{
+    max-width: 95%;
+    border-radius: 5px;
+}
+.country-name{
+    position: absolute;
+    font-size: 24px;
+    top: 30px;
+    left: 30px;
+}
+.img{
+    max-width: 95%;
+    border-radius: 3px;
+}
+.title{
+    padding-top: 3px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
