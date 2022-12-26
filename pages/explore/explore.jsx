@@ -127,55 +127,6 @@ const explore = () => {
   return (
     <div>
       <main className={styles.main}>
-        <div className={styles["left-side"]}>
-          <Link href="/">
-            <img src="./img/logo.png" alt="" width={100} height={60}></img>
-          </Link>
-          <ul className={styles.menu}>
-            <li>
-              <div className={styles["menu-link"]}>
-                <HouseDoorFill color="blue" />
-                <Link className={styles.func} href="/">
-                  {" "}
-                  Trang chủ
-                </Link>
-              </div>
-            </li>
-
-            <li>
-              <div className={styles["menu-link"]}>
-                <Disc color="yellow" />
-                <Link className={styles.func} href="/explore/explore">
-                  {" "}
-                  Khám phá
-                </Link>
-              </div>
-            </li>
-
-            <li>
-              <div className={styles["menu-link"]}>
-                <Reception4 color="red" />
-                <Link className={styles.func} href="/rank/rank">
-                  {" "}
-                  BXH
-                </Link>
-              </div>
-            </li>
-
-            <li>
-              <div className={styles["menu-link"]}>
-                <Hearts color="pink" />
-                <Link className={styles.func} href="/about/About">
-                  {" "}
-                  Music 4U
-                </Link>
-              </div>
-            </li>
-          </ul>
-
-          <Divider color="white" />
-        </div>
-
         <div className={styles["between-side"]}>
           <div className={styles["search-acc"]}>
             <div className={styles["search-bar"]}>
@@ -195,170 +146,260 @@ const explore = () => {
                 <PersonCircle size={32} color="white"></PersonCircle>
               </Button>
               <Modal hideBackdrop open={open} onClose={handleClose}>
-                <Box sx={{ ...style, width: 300 }}>
-                  <Grid container spacing={2} className={styles["white-color"]}>
-                    <Grid xs={1}></Grid>
-                    <Grid xs={10}>
-                      <h3 className={styles["title-modal"]}>Đăng Nhập</h3>
-                    </Grid>
-                    <Grid xs={1}>
-                      <Button onClick={handleClose}>
-                        <CloseIcon
-                          className={styles["white-color"]}
-                        ></CloseIcon>
-                      </Button>
-                    </Grid>
-                  </Grid>
-
-                  <form container className={styles.form}>
-                    <div className={styles["d-flex"]}>
-                      <PermIdentityIcon
-                        className={styles["input-form"]}
-                        size={20}
-                        border="white"
-                      ></PermIdentityIcon>
-                      <OutlinedInput
-                        className={styles["input-form"]}
-                        placeholder="Nhập tên đăng nhập"
-                      ></OutlinedInput>
-                    </div>
-                    <div className={styles["d-flex"]}>
-                      <KeyboardIcon
-                        className={styles["input-form"]}
-                        size={20}
-                        border="white"
-                      ></KeyboardIcon>
-                      <OutlinedInput
-                        className={styles["input-form"]}
-                        placeholder="Nhập mật khẩu"
-                      ></OutlinedInput>
-                    </div>
-                    <div className={styles["d-flex"]}>
-                      <Checkbox
-                        size="12"
-                        className={styles["white-color"]}
-                      ></Checkbox>
-                      <p className={styles["white-color"]}>Ghi nhớ</p>
-                    </div>
-                    <Button className={styles["form-submit"]}>Đăng Nhập</Button>
-                    <div className={styles["d-flex"]}>
-                      <p className={styles["white-color"]}>
-                        Hoặc đăng nhập bằng
-                      </p>
-                      <FacebookIcon
-                        className={styles["white-color"]}
-                      ></FacebookIcon>
-                      <GoogleIcon
-                        className={styles["white-color"]}
-                      ></GoogleIcon>
-                    </div>
-                    <p className={styles["white-color"]}>
-                      Bạn chưa có tài khoản ?
-                    </p>
-                    <Link
-                      onClick={() => {
-                        handleClose();
-                        openRegisterForm();
-                      }}
-                      className={styles["blue-color"]}
-                      href=""
+                <form
+                  action=""
+                  method="POST"
+                  className="form"
+                  id="form-1"
+                  onSubmit={handleSubmit((data) => {
+                    console.log(data);
+                  })}
+                >
+                  <Box sx={{ ...style, width: 300 }}>
+                    <Grid
+                      container
+                      spacing={2}
+                      className={styles["white-color"]}
                     >
-                      Đăng ký ngay
-                    </Link>
-                  </form>
-                </Box>
+                      <Grid xs={1}></Grid>
+                      <Grid xs={10}>
+                        <h3 className={styles["title-modal"]}>Đăng Nhập</h3>
+                      </Grid>
+                      <Grid xs={1}>
+                        <Button onClick={handleClose}>
+                          <CloseIcon
+                            className={styles["white-color"]}
+                          ></CloseIcon>
+                        </Button>
+                      </Grid>
+                    </Grid>
+                    <form container className={styles.form}>
+                      <div className={styles["d-flex"]} position="relative">
+                        <PermIdentityIcon
+                          className={styles["input-icon"]}
+                        ></PermIdentityIcon>
+                        <input
+                          className={styles["input-form"]}
+                          type="text"
+                          {...register("username", { required: true })}
+                          placeholder="Nhập tên đăng nhập"
+                        ></input>
+                      </div>
+                      {errors.username && (
+                        <div className={styles.notification}>
+                          Bạn cần nhập tên tài khoản
+                        </div>
+                      )}
+                      <div className={styles["d-flex"]} position="relative">
+                        <KeyboardIcon
+                          className={styles["input-icon"]}
+                        ></KeyboardIcon>
+                        <input
+                          className={styles["input-form"]}
+                          type="password"
+                          placeholder="Nhập mật khẩu"
+                          {...register("password", { required: true })}
+                        ></input>
+                      </div>
+                      {errors.password && (
+                        <div className={styles.notification}>
+                          Bạn cần nhập mật khẩu
+                        </div>
+                      )}
+                      <div className={styles["d-flex"]}>
+                        <Checkbox
+                          size="12"
+                          className={styles["white-color"]}
+                        ></Checkbox>
+                        <p className={styles["white-color"]}>Ghi nhớ</p>
+                      </div>
+                      <Button className={styles["form-submit"]}>
+                        Đăng Nhập
+                      </Button>
+                      <div className={styles["d-flex"]}>
+                        <p className={styles["white-color"]}>
+                          Hoặc đăng nhập bằng
+                        </p>
+                        <FacebookIcon
+                          className={styles["white-color"]}
+                        ></FacebookIcon>
+                        <GoogleIcon
+                          className={styles["white-color"]}
+                        ></GoogleIcon>
+                      </div>
+                      <p className={styles["white-color"]}>
+                        Bạn chưa có tài khoản ?
+                      </p>
+                      <Link
+                        onClick={() => {
+                          handleClose();
+                          openRegisterForm();
+                        }}
+                        className={styles["blue-color"]}
+                        href=""
+                      >
+                        Đăng ký ngay
+                      </Link>
+                    </form>
+                  </Box>
+                </form>
               </Modal>
 
               <Modal hideBackdrop open={registerForm}>
-                <Box sx={{ ...style, width: 300 }}>
-                  <Grid container spacing={2} className={styles["white-color"]}>
-                    <Grid xs={1}></Grid>
-                    <Grid xs={10}>
-                      <h3 className={styles["title-modal"]}>
-                        Đăng Ký Tài Khoản
-                      </h3>
-                    </Grid>
-                    <Grid xs={1}>
-                      <Button onClick={closeRegisterForm}>
-                        <CloseIcon
-                          className={styles["white-color"]}
-                        ></CloseIcon>
-                      </Button>
-                    </Grid>
-                  </Grid>
-
-                  <form container className={styles.form}>
-                    <div className={styles["d-flex"]}>
-                      <PermIdentityIcon
-                        className={styles["input-form"]}
-                        size={20}
-                        border="white"
-                      ></PermIdentityIcon>
-                      <OutlinedInput
-                        className={styles["input-form"]}
-                        placeholder="Nhập tên đăng nhập"
-                      ></OutlinedInput>
-                    </div>
-                    <div className={styles["d-flex"]}>
-                      <KeyboardIcon
-                        className={styles["input-form"]}
-                        size={20}
-                        border="white"
-                      ></KeyboardIcon>
-                      <OutlinedInput
-                        className={styles["input-form"]}
-                        placeholder="Nhập mật khẩu"
-                      ></OutlinedInput>
-                    </div>
-                    <div className={styles["d-flex"]}>
-                      <KeyboardIcon
-                        className={styles["input-form"]}
-                        size={20}
-                        border="white"
-                      ></KeyboardIcon>
-                      <OutlinedInput
-                        className={styles["input-form"]}
-                        placeholder="Nhập lại mật khẩu"
-                      ></OutlinedInput>
-                    </div>
-                    <div className={styles["d-flex"]}>
-                      <MailOutlineIcon
-                        className={styles["input-form"]}
-                        size={20}
-                        border="white"
-                      ></MailOutlineIcon>
-                      <OutlinedInput
-                        className={styles["input-form"]}
-                        placeholder="Nhập email"
-                      ></OutlinedInput>
-                    </div>
-                    <div className={styles["d-flex"]}>
-                      <Checkbox
-                        size="12"
-                        className={styles["white-color"]}
-                      ></Checkbox>
-                      <p className={styles["white-color"]}>
-                        Tôi đã đọc và đồng ý với các điều khoản sử dụng
-                      </p>
-                    </div>
-                    <Button className={styles["form-submit"]} disabled>
-                      Đăng Ký
-                    </Button>
-                    <p className={styles["white-color"]}>
-                      Bạn đã có tài khoản ?
-                    </p>
-                    <Link
-                      onClick={() => {
-                        closeRegisterForm();
-                        handleOpen();
-                      }}
-                      className={styles["blue-color"]}
-                      href=""
+                <form
+                  action=""
+                  method="POST"
+                  className="form"
+                  id="form-1"
+                  onSubmit={handleSubmit((data) => {
+                    console.log(data);
+                  })}
+                >
+                  <Box sx={{ ...style, width: 300 }}>
+                    <Grid
+                      container
+                      spacing={2}
+                      className={styles["white-color"]}
                     >
-                      Đăng nhập
-                    </Link>
-                  </form>
-                </Box>
+                      <Grid xs={1}></Grid>
+                      <Grid xs={10}>
+                        <h3 className={styles["title-modal"]}>
+                          Đăng Ký Tài Khoản
+                        </h3>
+                      </Grid>
+                      <Grid xs={1}>
+                        <Button onClick={closeRegisterForm}>
+                          <CloseIcon
+                            className={styles["white-color"]}
+                          ></CloseIcon>
+                        </Button>
+                      </Grid>
+                    </Grid>
+                    <form container className={styles.form}>
+                      <div className={styles["d-flex"]} position="relative">
+                        <PermIdentityIcon
+                          className={styles["input-icon"]}
+                        ></PermIdentityIcon>
+                        <input
+                          className={styles["input-form"]}
+                          type="text"
+                          name="usernameRegister"
+                          placeholder="Nhập tên đăng nhập"
+                          {...register("usernameRegister", {
+                            required: "Vui lòng nhập tên tài khoản",
+                            minLength: {
+                              value: 6,
+                              message:
+                                "Tên đăng nhập cần phải có từ 6 đến 20 ký tự",
+                            },
+                            maxLength: {
+                              value: 20,
+                              message:
+                                "Tên đăng nhập cần phải có từ 6 đến 20 ký tự",
+                            },
+                          })}
+                        ></input>
+                      </div>
+                      <div className={styles.notification}>
+                        {errors.usernameRegister &&
+                          errors.usernameRegister.message}
+                      </div>
+                      <div className={styles["d-flex"]} position="relative">
+                        <KeyboardIcon
+                          className={styles["input-icon"]}
+                        ></KeyboardIcon>
+                        <input
+                          className={styles["input-form"]}
+                          type="text"
+                          placeholder="Nhập mật khẩu"
+                          name="passwordRegister"
+                          {...register("passwordRegister", {
+                            required: "Vui lòng nhập mật khẩu",
+                            pattern: {
+                              value:
+                                /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                              message:
+                                "Mật khẩu phải chứa ít nhất 8 ký tự, trong có phải có ít nhất 1 ký tự in hoa, 1 ký tự thường và 1 ký tự số",
+                            },
+                          })}
+                        ></input>
+                      </div>
+                      <div className={styles.notification}>
+                        {errors.passwordRegister &&
+                          errors.passwordRegister.message}
+                      </div>
+                      <div className={styles["d-flex"]} position="relative">
+                        <KeyboardIcon
+                          className={styles["input-icon"]}
+                        ></KeyboardIcon>
+                        <input
+                          className={styles["input-form"]}
+                          type="text"
+                          placeholder="Nhập lại mật khẩu"
+                          name="rePassword"
+                          {...register("rePassword", {
+                            required: "Vui lòng nhập lại mật khẩu",
+                            validate: {
+                              match: (v) =>
+                                v === getValues("passwordRegister") ||
+                                "Mật khẩu nhập lại không chính xác",
+                            },
+                          })}
+                        ></input>
+                      </div>
+                      <div className={styles.notification}>
+                        {errors.rePassword && errors.rePassword.message}
+                      </div>
+                      <div className={styles["d-flex"]} position="relative">
+                        <MailOutlineIcon
+                          className={styles["input-icon"]}
+                        ></MailOutlineIcon>
+                        <input
+                          className={styles["input-form"]}
+                          type="text"
+                          placeholder="Nhập Email"
+                          name="email"
+                          {...register("email", {
+                            required: "Vui lòng nhập Email",
+                            pattern: {
+                              value:
+                                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                              message: "Trường này phải là Email",
+                            },
+                          })}
+                        ></input>
+                      </div>
+                      {errors.email && (
+                        <div className={styles.notification}>
+                          {errors.email.message}
+                        </div>
+                      )}
+                      <div className={styles["d-flex"]}>
+                        <Checkbox
+                          size="12"
+                          className={styles["white-color"]}
+                        ></Checkbox>
+                        <p className={styles["white-color"]}>
+                          Tôi đã đọc và đồng ý với các điều khoản sử dụng
+                        </p>
+                      </div>
+                      <Button className={styles["form-submit"]}>Đăng Ký</Button>
+                      <p className={styles["white-color"]}>
+                        Bạn đã có tài khoản ?
+                      </p>
+                      <Link
+                        onClick={() => {
+                          closeRegisterForm();
+                          handleOpen();
+                        }}
+                        className={styles["blue-color"]}
+                        href=""
+                      >
+                        Đăng nhập
+                      </Link>
+                    </form>
+                  </Box>
+                </form>
               </Modal>
             </div>
           </div>
