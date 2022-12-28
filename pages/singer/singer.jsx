@@ -57,7 +57,7 @@ const style = {
 };
 
 const singer = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
