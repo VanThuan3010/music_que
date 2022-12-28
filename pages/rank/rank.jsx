@@ -1133,7 +1133,7 @@ const rank = () => {
                     Jun Pulse
                   </Typography>
                   <Typography noWrap className={styles["white-color"]}>
-                    <b>คนเก่าเขาทำไว้ดี (Can&apos;t win)</b>
+                    <b>คนเก่าเขาทำไว้ดี (Can ;t win)</b>
                   </Typography>
                   <Typography
                     noWrap
