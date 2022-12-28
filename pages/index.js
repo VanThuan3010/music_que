@@ -125,12 +125,11 @@ export default function Home() {
     setPosition(Math.round(document.getElementById("audio").currentTime));
   };
 
-    
   const myInterval = setInterval(updateRealTime, 1000);
   useEffect(() => {
     setDuration(Math.round(document.getElementById("audio").duration));
     // setPosition(Math.round(document.getElementById("audio").currentTime));
-    clearInterval(myInterval)
+    clearInterval(myInterval);
   }, [position]);
 
   const [open, setOpen] = React.useState(false);
@@ -1582,7 +1581,7 @@ export default function Home() {
                       letterSpacing={-0.25}
                       className={styles["white-color"]}
                     >
-                      Chilling Sunday &mdash; คนเก่าเขาทำไว้ดี
+                      Chilling Sunday คนเก่าเขาทำไว้ดี
                     </Typography>
                   </Box>
                 </Box>

@@ -1140,7 +1140,7 @@ const rank = () => {
                     letterSpacing={-0.25}
                     className={styles["white-color"]}
                   >
-                    Chilling Sunday &mdash; คนเก่าเขาทำไว้ดี
+                    Chilling Sunday คนเก่าเขาทำไว้ดี
                   </Typography>
                 </Box>
               </Box>

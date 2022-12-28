@@ -1,6 +1,7 @@
 import * as React from "react";
 import styles from "../../styles/all.module.css";
 import { styled, useTheme } from "@mui/material/styles";
+import { useState } from "react";
 
 import Divider from "@mui/material/Divider";
 import Checkbox from "@mui/material/Checkbox";
@@ -71,26 +72,24 @@ const TinyText = styled(Typography)({
 });
 
 const Music = () => {
-    const theme = useTheme();
-    const duration = 200;
-    const [position, setPosition] = React.useState(32);
-    const [paused, setPaused] = React.useState(false);
-    function formatDuration(value) {
-      const minute = Math.floor(value / 60);
-      const secondLeft = value - minute * 60;
-      return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
-    }
-    const mainIconColor = theme.palette.mode === "dark" ? "#fff" : "#000";
-    const lightIconColor =
-      theme.palette.mode === "dark"
-        ? "rgba(255,255,255,0.4)"
-        : "rgba(0,0,0,0.4)";
+  const theme = useTheme();
+  const duration = 200;
+  const [position, setPosition] = useState(32);
+  const [paused, setPaused] = useState(false);
+  function formatDuration(value) {
+    const minute = Math.floor(value / 60);
+    const secondLeft = value - minute * 60;
+    return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
+  }
+  const mainIconColor = theme.palette.mode === "dark" ? "#fff" : "#000";
+  const lightIconColor =
+    theme.palette.mode === "dark" ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.4)";
 
-    const [value, setValue] = React.useState("1");
+  const [value, setValue] = useState("1");
 
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <div className={styles["right-side"]}>
@@ -114,14 +113,14 @@ const Music = () => {
                   Jun Pulse
                 </Typography>
                 <Typography noWrap className={styles["white-color"]}>
-                  <b>คนเก่าเขาทำไว้ดี (Can&apos;t win)</b>
+                  <b>คนเก่าเขาทำไว้ดี Cant win</b>
                 </Typography>
                 <Typography
                   noWrap
                   letterSpacing={-0.25}
                   className={styles["white-color"]}
                 >
-                  Chilling Sunday &mdash; คนเก่าเขาทำไว้ดี
+                  Chilling Sunday คนเก่าเขาทำไว้ดี
                 </Typography>
               </Box>
             </Box>
