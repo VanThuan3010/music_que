@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -104,8 +104,35 @@ const TinyText = styled(Typography)({
   letterSpacing: 0.2,
 });
 
+const songs = [
+  {
+    name: "Thuốc Lào Nghệ An",
+    singer: "Vanh Leg",
+    src: "https://res.cloudinary.com/dd4k5r61c/video/upload/v1672154911/Music%20Website/audio/Thu%E1%BB%91c_l%C3%A0o_Ngh%E1%BB%87_an_dl1a6f.mp3",
+  },
+  {
+    name: "Có Chơi Có Chịu",
+    singer: "Karik, Only C",
+    src: "https://res.cloudinary.com/dd4k5r61c/video/upload/v1672157765/Music%20Website/audio/C%C3%93_CH%C6%A0I_C%C3%93_CH%E1%BB%8AU_sv7pv7.mp3",
+  },
+];
 
 export default function Home() {
+  const [duration, setDuration] = React.useState();
+  const [position, setPosition] = React.useState(0);
+
+  const updateRealTime = () => {
+    setPosition(Math.round(document.getElementById("audio").currentTime));
+  };
+
+    
+  const myInterval = setInterval(updateRealTime, 1000);
+  useEffect(() => {
+    setDuration(Math.round(document.getElementById("audio").duration));
+    // setPosition(Math.round(document.getElementById("audio").currentTime));
+    clearInterval(myInterval)
+  }, [position]);
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -115,8 +142,6 @@ export default function Home() {
   };
 
   const theme = useTheme();
-  const duration = 200;
-  const [position, setPosition] = React.useState(32);
   const [paused, setPaused] = React.useState(false);
   function formatDuration(value) {
     const minute = Math.floor(value / 60);
@@ -153,7 +178,7 @@ export default function Home() {
   return (
     <div>
       <main className={styles.main}>
-        <div className={styles["between-side"]}>
+        {/* <div className={styles["between-side"]}>
           <div className={styles["search-acc"]}>
             <div className={styles["search-bar"]}>
               <Search
@@ -1526,10 +1551,11 @@ export default function Home() {
               </div>
             </div>
           </footer>
-        </div>
+        </div> */}
 
         <div className={styles["right-side"]}>
           <div className={styles["play-now"]}>
+            <audio id="audio" src={songs[1].src}></audio>
             <Box sx={{ width: "100%", overflow: "hidden" }}>
               <Widget>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -1560,14 +1586,37 @@ export default function Home() {
                     </Typography>
                   </Box>
                 </Box>
-                <Slider
-                  aria-label="time-indicator"
-                  size="small"
-                  value={position}
+                <input
+                  style={{
+                    color:
+                      theme.palette.mode === "dark"
+                        ? "#fff"
+                        : "rgba(0,0,0,0.87)",
+                    height: 4,
+                    width: 300,
+                  }}
+                  type={"range"}
                   min={0}
-                  step={1}
                   max={duration}
-                  onChange={(_, value) => setPosition(value)}
+                  value={position}
+                  step={1}
+                  onChange={(e) => {
+                    document.getElementById("audio").currentTime =
+                      e.target.value;
+                    setPosition(e.target.value);
+                  }}
+                ></input>
+                {/* <Slider
+                  size="small"
+                  min={0}
+                  max={duration}
+                  onChange={(e) => {
+                    updateRealTime();
+                    document.getElementById("audio").currentTime =
+                      e.target.value;
+                    setPosition(e.target.value);
+                  }}
+                  value={position}
                   sx={{
                     color:
                       theme.palette.mode === "dark"
@@ -1597,20 +1646,21 @@ export default function Home() {
                       opacity: 0.28,
                     },
                   }}
-                />
+                /> */}
                 <Box
                   sx={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
                     mt: -2,
+                    pt: 2,
                   }}
                 >
                   <TinyText className={styles["white-color"]}>
                     {formatDuration(position)}
                   </TinyText>
                   <TinyText className={styles["white-color"]}>
-                    -{formatDuration(duration - position)}
+                    {formatDuration(duration)}
                   </TinyText>
                 </Box>
                 <Box
@@ -1636,11 +1686,17 @@ export default function Home() {
                   >
                     {paused ? (
                       <PlayArrowRounded
+                        onClick={() => {
+                          document.getElementById("audio").play();
+                        }}
                         sx={{ fontSize: "3rem" }}
                         htmlColor={mainIconColor}
                       />
                     ) : (
                       <PauseRounded
+                        onClick={() => {
+                          document.getElementById("audio").pause();
+                        }}
                         sx={{ fontSize: "3rem" }}
                         htmlColor={mainIconColor}
                       />
