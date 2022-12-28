@@ -99,7 +99,7 @@ const explore = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const [registerForm, setRegisterForm] = React.useState(false);
+  const [registerForm, setRegisterForm] = useState(false);
   const openRegisterForm = () => {
     setRegisterForm(true);
   };
