@@ -83,7 +83,7 @@ const singer = () => {
     <div>
       <main className={styles.main}>
         <div className={styles["between-side"]}>
-          <div className={styles["search-acc"]}>
+          {/* <div className={styles["search-acc"]}>
             <div className={styles["search-bar"]}>
               <Search
                 size={20}
@@ -357,7 +357,7 @@ const singer = () => {
                 </form>
               </Modal>
             </div>
-          </div>
+          </div> */}
 
           <div className={styles.content}>
             <div className={styles["p-relative"]}>

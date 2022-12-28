@@ -129,7 +129,7 @@ const playList = () => {
     <div>
       <main className={styles.main}>
         <div className={styles["between-side"]}>
-          <div className={styles["search-acc"]}>
+          {/* <div className={styles["search-acc"]}>
             <div className={styles["search-bar"]}>
               <Search
                 size={20}
@@ -403,7 +403,7 @@ const playList = () => {
                 </form>
               </Modal>
             </div>
-          </div>
+          </div> */}
 
           <div className={styles.content}>
             <div className={styles["d-flex"]}>

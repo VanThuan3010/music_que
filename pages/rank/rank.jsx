@@ -203,7 +203,7 @@ const rank = () => {
   return (
     <main className={styles.main}>
       <div className={styles["between-side"]}>
-        <div className={styles["search-acc"]}>
+        {/* <div className={styles["search-acc"]}>
           <div className={styles["search-bar"]}>
             <Search
               size={20}
@@ -467,7 +467,7 @@ const rank = () => {
               </form>
             </Modal>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.content}>
           <h2>BXH</h2>
