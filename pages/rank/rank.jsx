@@ -1,6 +1,7 @@
 // nsdfn
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
+import { useState } from "react";
 
 import Divider from "@mui/material/Divider";
 import Link from "next/link";
@@ -166,14 +167,14 @@ const top = [
 ];
 
 const rank = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
-  const [registerForm, setRegisterForm] = React.useState(false);
+  const [registerForm, setRegisterForm] = useState(false);
   const openRegisterForm = () => {
     setRegisterForm(true);
   };

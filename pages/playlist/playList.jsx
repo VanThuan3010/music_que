@@ -1,6 +1,7 @@
 import * as React from "react";
 import styles from "../playlist/playList.module.css";
 import { styled, useTheme } from "@mui/material/styles";
+import { useState } from "react";
 
 import Divider from "@mui/material/Divider";
 import Link from "next/link";
@@ -91,14 +92,14 @@ const TinyText = styled(Typography)({
 });
 
 const playList = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
-  const [registerForm, setRegisterForm] = React.useState(false);
+  const [registerForm, setRegisterForm] = useState(false);
   const openRegisterForm = () => {
     setRegisterForm(true);
   };

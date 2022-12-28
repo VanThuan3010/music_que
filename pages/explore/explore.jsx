@@ -1,6 +1,7 @@
 import * as React from "react";
 import styles from "../explore/explore.module.css";
 import { styled, useTheme } from "@mui/material/styles";
+import { useState } from "react";
 
 import Divider from "@mui/material/Divider";
 import Link from "next/link";
@@ -91,7 +92,7 @@ const TinyText = styled(Typography)({
 });
 
 const explore = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
@@ -128,7 +129,7 @@ const explore = () => {
     <div>
       <main className={styles.main}>
         <div className={styles["between-side"]}>
-          <div className={styles["search-acc"]}>
+          {/* <div className={styles["search-acc"]}>
             <div className={styles["search-bar"]}>
               <Search
                 size={20}
@@ -402,7 +403,7 @@ const explore = () => {
                 </form>
               </Modal>
             </div>
-          </div>
+          </div> */}
 
           <div className={styles.content}>
             <img

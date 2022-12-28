@@ -1,6 +1,7 @@
 import * as React from "react";
 import styles from "../singer/singer.module.css";
 import { styled, useTheme } from "@mui/material/styles";
+import { useState } from "react";
 
 import Divider from "@mui/material/Divider";
 import Link from "next/link";
@@ -63,14 +64,14 @@ const singer = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const [about, setAbout] = React.useState(false);
+  const [about, setAbout] = useState(false);
   const openAbout = () => {
     setAbout(true);
   };
   const closeAbout = () => {
     setAbout(false);
   };
-  const [registerForm, setRegisterForm] = React.useState(false);
+  const [registerForm, setRegisterForm] = useState(false);
   const openRegisterForm = () => {
     setRegisterForm(true);
   };
